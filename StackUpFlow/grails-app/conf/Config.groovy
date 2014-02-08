@@ -105,22 +105,8 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/js/**':                      ['permitAll'],
 	'/**/css/**':                     ['permitAll'],
 	'/**/images/**':                  ['permitAll'],
-	'/**/favicon.ico':                ['permitAll']
+	'/**/favicon.ico':                ['permitAll'],
+	'/user/*':						  ['ROLE_ADMIN'],
+	'/login/**':        ['IS_AUTHENTICATED_ANONYMOUSLY'],
+	'/logout/**':       ['IS_AUTHENTICATED_ANONYMOUSLY']
 ]
-
-
-
-// Added by the Spring Security Core plugin:
-grails.plugin.springsecurity.userLookup.userDomainClassName = 'stackupflow.SecUser'
-grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'stackupflow.SecUserRole'
-grails.plugin.springsecurity.authority.className = 'stackupflow.Role'
-grails.plugin.springsecurity.controllerAnnotations.staticRules = [
-	'/':                              ['permitAll'],
-	'/index':                         ['permitAll'],
-	'/index.gsp':                     ['permitAll'],
-	'/**/js/**':                      ['permitAll'],
-	'/**/css/**':                     ['permitAll'],
-	'/**/images/**':                  ['permitAll'],
-	'/**/favicon.ico':                ['permitAll']
-]
-

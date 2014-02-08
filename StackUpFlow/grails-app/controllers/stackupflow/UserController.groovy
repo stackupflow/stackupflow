@@ -9,15 +9,6 @@ class UserController {
     def index() {
         redirect(action: "list", params: params)
     }
-	
-	def login() {
-		if(params.username == "admin" && params.password == "pass"){
-			render "login succeed"
-			redirect(action: "list")
-		}else{
-			render "login failed"
-		}
-	}
 
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -49,6 +40,8 @@ class UserController {
 
         [userInstance: userInstance]
     }
+	
+	
 
     def edit(Long id) {
         def userInstance = User.get(id)

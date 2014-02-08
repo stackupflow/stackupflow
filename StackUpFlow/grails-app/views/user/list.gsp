@@ -24,17 +24,17 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="birthDate" title="${message(code: 'user.birthDate.label', default: 'Birth Date')}" />
+						<g:sortableColumn property="username" title="${message(code: 'user.username.label', default: 'Username')}" />
+					
+						<g:sortableColumn property="password" title="${message(code: 'user.password.label', default: 'Password')}" />
+					
+						<g:sortableColumn property="name" title="${message(code: 'user.name.label', default: 'Name')}" />
+					
+						<g:sortableColumn property="mail" title="${message(code: 'user.mail.label', default: 'Mail')}" />
 					
 						<g:sortableColumn property="creationDate" title="${message(code: 'user.creationDate.label', default: 'Creation Date')}" />
 					
 						<g:sortableColumn property="lastVisit" title="${message(code: 'user.lastVisit.label', default: 'Last Visit')}" />
-					
-						<g:sortableColumn property="mail" title="${message(code: 'user.mail.label', default: 'Mail')}" />
-					
-						<g:sortableColumn property="name" title="${message(code: 'user.name.label', default: 'Name')}" />
-					
-						<g:sortableColumn property="password" title="${message(code: 'user.password.label', default: 'Password')}" />
 					
 					</tr>
 				</thead>
@@ -42,17 +42,17 @@
 				<g:each in="${userInstanceList}" status="i" var="userInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${userInstance.id}">${fieldValue(bean: userInstance, field: "birthDate")}</g:link></td>
+						<td><g:link action="show" id="${userInstance.id}">${fieldValue(bean: userInstance, field: "username")}</g:link></td>
+					
+						<td>${fieldValue(bean: userInstance, field: "password")}</td>
+					
+						<td>${fieldValue(bean: userInstance, field: "name")}</td>
+					
+						<td>${fieldValue(bean: userInstance, field: "mail")}</td>
 					
 						<td><g:formatDate date="${userInstance.creationDate}" /></td>
 					
 						<td><g:formatDate date="${userInstance.lastVisit}" /></td>
-					
-						<td>${fieldValue(bean: userInstance, field: "mail")}</td>
-					
-						<td>${fieldValue(bean: userInstance, field: "name")}</td>
-					
-						<td>${fieldValue(bean: userInstance, field: "password")}</td>
 					
 					</tr>
 				</g:each>
