@@ -5,8 +5,6 @@ import stackupflow.UserRole
 class BootStrap {
 
     def init = { servletContext ->
-		new User(name:"admin",mail:"admin@isima.fr",password:"admin",creationDate:"06/02/2014" ).save();
-		
 		def userRole = Role.findByAuthority('ROLE_USER') ?: new Role(authority: 'ROLE_USER').save(failOnError: true)
 		def adminRole = Role.findByAuthority('ROLE_ADMIN') ?: new Role(authority: 'ROLE_ADMIN').save(failOnError: true)
 		

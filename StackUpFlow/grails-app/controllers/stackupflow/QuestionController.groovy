@@ -3,6 +3,8 @@ package stackupflow
 import org.springframework.dao.DataIntegrityViolationException
 
 class QuestionController {
+	
+	def springSecurityService
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
@@ -20,7 +22,14 @@ class QuestionController {
     }
 
     def save() {
-        def questionInstance = new Question(params)
+		Question q = new Question()
+		q.author = springSecurityService.getCurrentUser()
+		q.creationDate = new Date()
+		q.lastEditDate = new Date()
+		q.score = 0
+		q.title = params.title
+		q.content = params.content
+        def questionInstance = q
         if (!questionInstance.save(flush: true)) {
             render(view: "create", model: [questionInstance: questionInstance])
             return

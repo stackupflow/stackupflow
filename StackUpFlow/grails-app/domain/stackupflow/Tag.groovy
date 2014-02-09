@@ -4,8 +4,8 @@ class Tag {
 	
 	int id
 	String name
-	Collection<Question> taggedQuestions
-	Collection<User> followingUsers
+	
+	static belongsTo = [taggedQuestions: Question,followingUsers: User]
 
     static constraints = {
     }

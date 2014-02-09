@@ -113,11 +113,55 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${userInstance?.answers}">
+				<li class="fieldcontain">
+					<span id="answers-label" class="property-label"><g:message code="user.answers.label" default="Answers" /></span>
+					
+						<g:each in="${userInstance.answers}" var="a">
+						<span class="property-value" aria-labelledby="answers-label"><g:link controller="answer" action="show" id="${a.id}">${a?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${userInstance?.askedQuestions}">
+				<li class="fieldcontain">
+					<span id="askedQuestions-label" class="property-label"><g:message code="user.askedQuestions.label" default="Asked Questions" /></span>
+					
+						<g:each in="${userInstance.askedQuestions}" var="a">
+						<span class="property-value" aria-labelledby="askedQuestions-label"><g:link controller="question" action="show" id="${a.id}">${a?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${userInstance?.earnedBadges}">
+				<li class="fieldcontain">
+					<span id="earnedBadges-label" class="property-label"><g:message code="user.earnedBadges.label" default="Earned Badges" /></span>
+					
+						<g:each in="${userInstance.earnedBadges}" var="e">
+						<span class="property-value" aria-labelledby="earnedBadges-label"><g:link controller="badge" action="show" id="${e.id}">${e?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${userInstance?.enabled}">
 				<li class="fieldcontain">
 					<span id="enabled-label" class="property-label"><g:message code="user.enabled.label" default="Enabled" /></span>
 					
 						<span class="property-value" aria-labelledby="enabled-label"><g:formatBoolean boolean="${userInstance?.enabled}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${userInstance?.followedTags}">
+				<li class="fieldcontain">
+					<span id="followedTags-label" class="property-label"><g:message code="user.followedTags.label" default="Followed Tags" /></span>
+					
+						<g:each in="${userInstance.followedTags}" var="f">
+						<span class="property-value" aria-labelledby="followedTags-label"><g:link controller="tag" action="show" id="${f.id}">${f?.encodeAsHTML()}</g:link></span>
+						</g:each>
 					
 				</li>
 				</g:if>

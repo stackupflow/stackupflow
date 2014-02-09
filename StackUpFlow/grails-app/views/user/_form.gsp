@@ -34,22 +34,6 @@
 	<g:textField name="mail" value="${userInstance?.mail}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'creationDate', 'error')} required">
-	<label for="creationDate">
-		<g:message code="user.creationDate.label" default="Creation Date" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:datePicker name="creationDate" precision="day"  value="${userInstance?.creationDate}"  />
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: userInstance, field: 'lastVisit', 'error')} required">
-	<label for="lastVisit">
-		<g:message code="user.lastVisit.label" default="Last Visit" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:datePicker name="lastVisit" precision="day"  value="${userInstance?.lastVisit}"  />
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: userInstance, field: 'webSite', 'error')} ">
 	<label for="webSite">
 		<g:message code="user.webSite.label" default="Web Site" />

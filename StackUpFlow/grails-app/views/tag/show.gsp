@@ -23,11 +23,29 @@
 			</g:if>
 			<ol class="property-list tag">
 			
+				<g:if test="${tagInstance?.followingUsers}">
+				<li class="fieldcontain">
+					<span id="followingUsers-label" class="property-label"><g:message code="tag.followingUsers.label" default="Following Users" /></span>
+					
+						<span class="property-value" aria-labelledby="followingUsers-label"><g:link controller="user" action="show" id="${tagInstance?.followingUsers?.id}">${tagInstance?.followingUsers?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${tagInstance?.name}">
 				<li class="fieldcontain">
 					<span id="name-label" class="property-label"><g:message code="tag.name.label" default="Name" /></span>
 					
 						<span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${tagInstance}" field="name"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${tagInstance?.taggedQuestions}">
+				<li class="fieldcontain">
+					<span id="taggedQuestions-label" class="property-label"><g:message code="tag.taggedQuestions.label" default="Tagged Questions" /></span>
+					
+						<span class="property-value" aria-labelledby="taggedQuestions-label"><g:link controller="question" action="show" id="${tagInstance?.taggedQuestions?.id}">${tagInstance?.taggedQuestions?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

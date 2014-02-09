@@ -98,6 +98,7 @@ log4j = {
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'stackupflow.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'stackupflow.UserRole'
 grails.plugin.springsecurity.authority.className = 'stackupflow.Role'
+grails.plugin.springsecurity.logout.postOnly = false
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/':                              ['permitAll'],
 	'/index':                         ['permitAll'],
@@ -106,7 +107,9 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/css/**':                     ['permitAll'],
 	'/**/images/**':                  ['permitAll'],
 	'/**/favicon.ico':                ['permitAll'],
-	'/user/*':						  ['ROLE_ADMIN'],
-	'/login/**':        ['IS_AUTHENTICATED_ANONYMOUSLY'],
-	'/logout/**':       ['IS_AUTHENTICATED_ANONYMOUSLY']
+	'/login/**':        			  ['IS_AUTHENTICATED_ANONYMOUSLY'],
+	'/logout/**':       			  ['IS_AUTHENTICATED_ANONYMOUSLY'],
+	'/user/*':						  ['permitAll'],
+	'/home/*':						  ['permitAll'],
+	'/*/*':						  	  ['ROLE_ADMIN','ROLE_USER']
 ]

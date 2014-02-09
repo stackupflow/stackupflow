@@ -18,7 +18,14 @@
 		<r:layoutResources />
 	</head>
 	<body>
-		<div id="grailsLogo" role="banner"><a href="http://grails.org"><img src="${resource(dir: 'images', file: 'grails_logo.png')}" alt="Grails"/></a></div>
+		<div id="grailsLogo" role="banner">
+			<a href="/StackUpFlow"><img src="${resource(dir: 'images', file: 'grails_logo.png')}" alt="Grails"/></a>
+			<a href="/StackUpFlow/login/auth" style="float: right;">login</a>
+			<a href="/StackUpFlow/logout" style="float: right;">logout</a>
+			<!-- language selector -->
+			<!-- <langs:selector langs="es, en, en_US, pt_BR, pt, pt_pt, fr_FR" default="fr_FR" /> -->
+		</div>
+		
 		<g:layoutBody/>
 		<div class="footer" role="contentinfo"></div>
 		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>

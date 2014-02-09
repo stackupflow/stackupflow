@@ -3,6 +3,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
+		<ckeditor:resources/>
 		<g:set var="entityName" value="${message(code: 'question.label', default: 'Question')}" />
 		<title><g:message code="default.create.label" args="[entityName]" /></title>
 	</head>

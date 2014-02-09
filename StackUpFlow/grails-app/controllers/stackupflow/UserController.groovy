@@ -20,7 +20,16 @@ class UserController {
     }
 
     def save() {
-        def userInstance = new User(params)
+		User u = new User()
+		u.creationDate = new Date()
+		u.lastVisit = new Date()
+		u.username = params.username
+		u.name = params.name
+		u.mail = params.mail
+		u.password = params.password
+		u.webSite = params.webSite
+		u.birthDate = params.birthDate
+		def userInstance = u
         if (!userInstance.save(flush: true)) {
             render(view: "create", model: [userInstance: userInstance])
             return

@@ -9,8 +9,8 @@ class Question {
 	String content
 	Date lastEditDate
 	int score
-	Collection<Tag> tags
-	Collection<Answer> answers
+		
+	static hasMany = [answers: Answer,tags: Tag]
 	
 
     static constraints = {

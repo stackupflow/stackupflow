@@ -24,7 +24,11 @@
 				<thead>
 					<tr>
 					
+						<th><g:message code="tag.followingUsers.label" default="Following Users" /></th>
+					
 						<g:sortableColumn property="name" title="${message(code: 'tag.name.label', default: 'Name')}" />
+					
+						<th><g:message code="tag.taggedQuestions.label" default="Tagged Questions" /></th>
 					
 					</tr>
 				</thead>
@@ -32,7 +36,11 @@
 				<g:each in="${tagInstanceList}" status="i" var="tagInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${tagInstance.id}">${fieldValue(bean: tagInstance, field: "name")}</g:link></td>
+						<td><g:link action="show" id="${tagInstance.id}">${fieldValue(bean: tagInstance, field: "followingUsers")}</g:link></td>
+					
+						<td>${fieldValue(bean: tagInstance, field: "name")}</td>
+					
+						<td>${fieldValue(bean: tagInstance, field: "taggedQuestions")}</td>
 					
 					</tr>
 				</g:each>

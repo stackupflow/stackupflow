@@ -19,10 +19,7 @@ class User {
 	Date birthDate
 	//BufferedImage profilPic
 	
-	Collection<Question> askedQuestions
-	Collection<Answer> answers
-	Collection<Tag> followedTags
-	Collection<Badge> earnedBadges
+	static hasMany = [askedQuestions: Question, answers: Answer, followedTags:Tag, earnedBadges: Badge]
 
 	static transients = ['springSecurityService']
 
@@ -58,4 +55,8 @@ class User {
 	protected void encodePassword() {
 		password = springSecurityService.encodePassword(password)
 	}
+	
+	String toString(){
+		return username
+	  }
 }

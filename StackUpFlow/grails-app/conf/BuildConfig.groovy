@@ -18,7 +18,7 @@ grails.project.dependency.resolution = {
         // specify dependency exclusions here; for example, uncomment this to disable ehcache:
         // excludes 'ehcache'
     }
-    log "warn" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
+    log "debug" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
     checksums true // Whether to verify checksums on resolve
     legacyResolve false // whether to do a secondary resolve on plugin installation, not advised and here for backwards compatibility
 
@@ -62,5 +62,7 @@ grails.project.dependency.resolution = {
 
         compile ':cache:1.0.1'
 		compile ':spring-security-core:2.0-RC2'
+		compile ':lang-selector:0.3'
+		compile ":ckeditor:3.6.6.1.1"
     }
 }
