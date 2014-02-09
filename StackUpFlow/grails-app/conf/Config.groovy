@@ -109,7 +109,27 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/favicon.ico':                ['permitAll'],
 	'/login/**':        			  ['IS_AUTHENTICATED_ANONYMOUSLY'],
 	'/logout/**':       			  ['IS_AUTHENTICATED_ANONYMOUSLY'],
-	'/user/*':						  ['permitAll'],
+	
+	'/home/*':					  	  ['permitAll'],
+	'/search/*':				  	  ['permitAll'],
+	'/unanswered/*':				  ['permitAll'],
+	
+	'/user/show':					  ['permitAll'],
+	'/user/create':					  ['ROLE_ADMIN'],
+	'/user/edit':					  ['ROLE_ADMIN'],
+	'/user/list':					  ['permitAll'],
+	
+	'/answer/show':					  ['ROLE_ADMIN'],
+	'/answer/create':				  ['ROLE_ADMIN','ROLE_USER'],
+	'/answer/edit':					  ['ROLE_ADMIN','ROLE_USER'],
+	'/answer/list':					  ['ROLE_ADMIN'],
+	
+	'/question/*':					  ['permitAll'],
+	'/question/show':				  ['permitAll'],
+	'/question/create':				  ['ROLE_ADMIN','ROLE_USER'],
+	'/question/edit':				  ['ROLE_ADMIN','ROLE_USER'],
+	'/question/list':				  ['permitAll'],
+	
 	'/home/*':						  ['permitAll'],
 	'/*/*':						  	  ['ROLE_ADMIN','ROLE_USER']
 ]
