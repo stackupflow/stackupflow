@@ -19,11 +19,11 @@
 	</head>
 	<body>
 		<div id="grailsLogo" role="banner">
-			<a href="/StackUpFlow"><img src="${resource(dir: 'images', file: 'grails_logo.png')}" alt="Grails"/></a>
+			<a href="/StackUpFlow"><img src="${resource(dir: 'images', file: 'layers-64.png')}" alt="Grails"/></a>
 			<a href="/StackUpFlow/login/auth" style="float: right;">login</a>
 			<a href="/StackUpFlow/logout" style="float: right;">logout</a>
 			<!-- language selector -->
-			<!-- <langs:selector langs="es, en, en_US, pt_BR, pt, pt_pt, fr_FR" default="fr_FR" /> -->
+			<div style="float: right;"><langs:selector langs="en, fr_FR" default="fr_FR"/></div>
 		</div>
 		
 		<div class="nav" role="navigation">
