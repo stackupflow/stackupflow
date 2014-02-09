@@ -20,6 +20,11 @@ class UserController {
     }
 
     def save() {
+		UserRole ur = new UserRole()
+		
+		Role r = new Role()
+		r =  Role.findByAuthority(params.role.toString()) 
+		
 		User u = new User()
 		u.creationDate = new Date()
 		u.lastVisit = new Date()
@@ -29,11 +34,18 @@ class UserController {
 		u.password = params.password
 		u.webSite = params.webSite
 		u.birthDate = params.birthDate
+
+		ur.role = r
+		ur.user = u
 		def userInstance = u
+		def userRoleInstance = ur
         if (!userInstance.save(flush: true)) {
             render(view: "create", model: [userInstance: userInstance])
             return
         }
+		if (!userRoleInstance.save(flush: true)) {
+			return
+		}
 
         flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), userInstance.id])
         redirect(action: "show", id: userInstance.id)

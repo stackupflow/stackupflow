@@ -64,7 +64,9 @@
 		</div>
 		<div id="page-body" role="main">
 			<div style="margin-top: 1em;">
-				<g:textField name="search" /><g:actionSubmit value="Search" />
+				<g:form action="search" >
+					<g:textField name="search" value="${searchText }"/><g:submitButton name="create" class="" value="Search" />
+				</g:form>
 				<label style="float: right; margin-right: 3em;"><g:link controller="Question" action="create">Ask Question</g:link></label>
 			</div>
 

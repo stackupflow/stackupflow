@@ -23,8 +23,8 @@ class BootStrap {
 		def basicUser = User.findByUsername('guest') ?: new User(
 				username: 'guest',
 				password: 'guest',
-				name: 'gest',
-				mail: 'gest@mail.fr',
+				name: 'guest',
+				mail: 'guest@mail.fr',
 				creationDate: '07/02/2014',
 				lastVisit: '07/02/2014',
 				webSite: 'google.fr',
