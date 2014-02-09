@@ -26,6 +26,23 @@
 			<!-- <langs:selector langs="es, en, en_US, pt_BR, pt, pt_pt, fr_FR" default="fr_FR" /> -->
 		</div>
 		
+		<div class="nav" role="navigation">
+			<ul>
+				<li class="Question"  style="float: right;"><g:link controller="Unanswered"><g:message code="home.actionNav.unanswered" /></g:link></li>
+				<li class="Badge"  style="float: right;"><g:link controller="Badge"><g:message code="home.actionNav.badges"/></g:link></li>
+				<li class="User"  style="float: right;"><g:link controller="User"><g:message code="home.actionNav.users"/></g:link></li>
+				<li class="Tag"  style="float: right;"><g:link controller="Tag"><g:message code="home.actionNav.tags"/></g:link></li>
+				<li class="Question"  style="float: right;"><g:link controller="Question"><g:message code="home.actionNav.questions"/></g:link></li>
+			</ul>
+		</div>
+		
+		<div style="margin-top: 1em; margin-left: 3em;">
+			<g:form action="search" >
+				<g:textField name="search" value="${searchText }"/><g:submitButton name="create" value="search" />
+			</g:form>
+			<label style="float: right; margin-right: 3em;"><g:link controller="Question" action="create"><g:message code="home.actionNav.askQuestion"/></g:link></label>
+		</div>
+		
 		<g:layoutBody/>
 		<div class="footer" role="contentinfo"></div>
 		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>

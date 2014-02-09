@@ -15,4 +15,8 @@ class Question {
 
     static constraints = {
     }
+	
+	String toString(){
+		return title
+	  }
 }

@@ -10,15 +10,6 @@
 	</head>
 	<body>
 		<a href="#show-question" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li class="Question"  style="float: right;"><g:link controller="Unanswered">Unanswered</g:link></li>
-				<li class="Badge"  style="float: right;"><g:link controller="Badge">Badges</g:link></li>
-				<li class="User"  style="float: right;"><g:link controller="User">Users</g:link></li>
-				<li class="Tag"  style="float: right;"><g:link controller="Tag">Tags</g:link></li>
-				<li class="Question"  style="float: right;"><g:link controller="Question">Questions</g:link></li>
-			</ul>
-		</div>
 		<div id="show-question" class="content scaffold-show" role="main">
 			<h1><g:message code="default.question.title" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
@@ -29,7 +20,7 @@
 				<g:if test="${questionInstance?.content}">
 				<label style="width: 90%;">${questionInstance.content}</label>
 				</g:if>
-				<div style="margin-top: 1em;">
+				<div style="margin-top: 1em; margin-bottom: 2em;">
 					<g:each var="t" in="${questionInstance.tags}">
 						<label>${t.name}</label> 
 					</g:each>
@@ -40,7 +31,7 @@
 			
 			<div style="margin-top: 1em; margin-left: 3em; margin-bottom: 2em;">
 				<h3>${questionInstance.answers.size()} answer(s) :</h3>
-				<g:each var="a" in="${questionInstance.answers}">
+				<g:each var="a" in="${questionInstance.answers.sort{it.creationDate}}">
 					<hr style="width:97%; margin-bottom: 1em;">
 					<label>${a.content}</label>
 					<p style="float: right; margin-right: 3em; margin-bottom: 1em;">
@@ -51,8 +42,11 @@
 			</div>
 			
 			<div style="margin-right: 3em; margin-left: 3em; margin-top: 1em; margin-bottom: 1em;">
-				<ckeditor:editor name="myeditor" width="100%" toolbar="Basic" resize_enabled="false"> </ckeditor:editor>
-				<g:actionSubmit name="submitAnswer" value="Submit your answer" />
+				<g:form action="save" controller="Answer" >
+					<g:hiddenField name="question" value="${questionInstance?.id}" />
+					<ckeditor:editor name="answer" width="100%" toolbar="Basic" resize_enabled="false"> </ckeditor:editor>
+					<g:submitButton name="submitAnswer" value="Submit your answer" />
+				</g:form>
 			</div>
 			
 			<g:form>

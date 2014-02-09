@@ -4,6 +4,8 @@ import org.springframework.dao.DataIntegrityViolationException
 
 class AnswerController {
 
+	def springSecurityService
+	
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {
@@ -20,14 +22,21 @@ class AnswerController {
     }
 
     def save() {
-        def answerInstance = new Answer(params)
+		Answer an = new Answer()
+		an.content = params.answer
+		an.creationDate = new Date()
+		an.lastEditDate = new Date()
+		an.score = 0
+		an.author = springSecurityService.getCurrentUser()
+		an.question = Question.findById(params.question)
+        def answerInstance = an
         if (!answerInstance.save(flush: true)) {
             render(view: "create", model: [answerInstance: answerInstance])
             return
         }
 
         flash.message = message(code: 'default.created.message', args: [message(code: 'answer.label', default: 'Answer'), answerInstance.id])
-        redirect(action: "show", id: answerInstance.id)
+        redirect(controller:"question" , action: "show", id: params.question)
     }
 
     def show(Long id) {
